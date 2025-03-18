@@ -1,1 +1,21 @@
-<p>home works!</p>
+
+
+<div style="display: flex; padding: 30px; align-items: center;">
+    <button (click)="saveName()" mat-fab color="primary" aria-label="Add name">
+      <mat-icon>add</mat-icon>
+    </button>
+  
+    <form #f="ngForm" [formGroup]="userForm">
+      <mat-form-field appearance="fill" style="padding-left: 10px;">
+        <mat-label>Insira um nome</mat-label>
+        <input formControlName="name" matInput placeholder="Digite o nome" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </form>
+  </div>
+  
+  <div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <span *ngFor="let name of names">{{ name | uppercase }}</span>
+  </div>
+
+  <span [ngClass]="{red: isRed, blue: !isRed}">{{ isRed ? 'Vermelho' : 'Azul' }}</span>
